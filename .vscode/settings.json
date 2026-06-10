@@ -1,0 +1,8 @@
+{
+    "chat.agent.enabled": false,
+    "chat.viewSessions.enabled": false,
+    "chat.extensionTools.enabled": false,
+    "chat.tools.confirmationCarousel.enabled": false,
+    "chat.mcp.access": "none",
+    "chat.disableAIFeatures": true
+}
