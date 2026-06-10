@@ -4,5 +4,6 @@
     "chat.extensionTools.enabled": false,
     "chat.tools.confirmationCarousel.enabled": false,
     "chat.mcp.access": "none",
-    "chat.disableAIFeatures": true
+    "chat.disableAIFeatures": true,
+    "editor.fontSize": 13
 }
