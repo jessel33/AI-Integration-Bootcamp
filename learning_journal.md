@@ -1,6 +1,6 @@
 # Set-up Session
 
-[This is from the time I spent preparing my learning Enviroment, 6/9/2026. Tomorrow AI-Intergration-Bootcamp one-on-one with ChatGPT Plus]: #
+[This is from the time I spent preparing my learning Enviroment, 6/9/2026. Tomorrow AI-Intergration-Bootcamp one-on-one with ChatGPT Plus]:
 
 # Date: 6/10/2026
 
