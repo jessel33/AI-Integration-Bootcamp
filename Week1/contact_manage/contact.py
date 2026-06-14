@@ -27,4 +27,3 @@ class Contact:
                 setattr(self, key, value)
             else:
                 raise AttributeError(f"'{type(self).__name__}' object either has no attribute '{key}' or that attribute in not modifiable")
-
