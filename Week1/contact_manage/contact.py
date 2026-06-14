@@ -1,4 +1,4 @@
-# Contact.py file
+# contact.py file
 # Create a Contact class that can:
 # - store name, email, phone, address, and notes
 # - update its own fields
@@ -21,9 +21,10 @@ class Contact:
         return f"Name: {self.name}\nEmail: {self.email}\nPhone: {self.phone}\nAddress: {str(self.address)}\nNotes: {self.notes}"
     
     def update_fields(self, **kwargs):
+        allowed_fields = ["name", "email", "phone", "address", "notes"]
         for key, value in kwargs.items():
-            if hasattr(self, key):
+            if key in allowed_fields:
                 setattr(self, key, value)
             else:
-                raise AttributeError(f"'{type(self).__name__}' object has no attribute '{key}'")
+                raise AttributeError(f"'{type(self).__name__}' object either has no attribute '{key}' or that attribute in not modifiable")
 
