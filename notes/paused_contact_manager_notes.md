@@ -1,17 +1,20 @@
 # Paused Contact Manager Notes
 
-## Current files
-- contact.py
-- contact_book.py
-- file_storage.py
+## Where I paused
+I paused while working on file_storage.py.
 
-## What confused me
+## Current confusion points
+- Objects vs dictionaries
+- Returning True/False vs raising exceptions
 - return statements inside loops
-- object vs dictionary
-- when to return True/False
-- when to raise exceptions
-- class responsibility boundaries
-- saving/loading JSON
+- How classes should communicate
+- Saving/loading JSON
+- When a class should or should not know about another class
 
-## Where we paused
-We paused during file_storage.py review before completing the full app.
+## Files involved
+- Week1/contact_manager/contact.py
+- Week1/contact_manager/contact_book.py
+- Week1/contact_manager/file_storage.py
+
+## Restart decision
+We are pausing the original bootcamp and doing a Python foundations review before restarting.
