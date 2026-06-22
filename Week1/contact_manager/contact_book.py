@@ -25,13 +25,13 @@ class ContactBook:
             output += f" - {contact}\n"
         return output.strip()
 
-    def store_list_of_contacts(self, existing_contact_list):
-        for contact in existing_contact_list:
+    def store_list_of_contacts(self, contact_list):
+        for contact in contact_list:
             for existing_contact in self._contacts:
                 if existing_contact.email == contact.email:
                     return False
             if not isinstance(contact, dict):
-                raise TypeError(f"Expected a dictionary, but got {type(contact).__name__}")
+                raise TypeError(f"Expected contact to be of type 'dict', but got type: {type(contact).__name__}")
                 return False
             self._contacts.append(contact)
             return True
@@ -47,7 +47,7 @@ class ContactBook:
         for contact in self._contacts:
             if contact.email == email:
                 self._contacts.remove(contact)
-                return True
+            return True
         return False
     
     def search_contacts(self, query: str):
@@ -55,7 +55,7 @@ class ContactBook:
 
         for contact in self._contacts:
             if query_lower in contact.name.lower() or query_lower in contact.email.lower():
-                return contact.to_dict()
+                return contact
         return None
     
     def list_all_contacts(self):

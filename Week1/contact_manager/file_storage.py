@@ -36,7 +36,7 @@ class FileStorage:
                 contact = Contact(**data)
                 contact_book.add_contact(contact)
 
-            return contact_book.list_all_contacts
+            return contact_book.list_all_contacts()
         
         except FileNotFoundError as e:
             print(f"The specified file could not be found: {e.strerror}")
