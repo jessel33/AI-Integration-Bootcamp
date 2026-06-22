@@ -12,35 +12,44 @@
 import json
 from contact_book import ContactBook
 from contact import Contact
-from dataclasses import dataclass, field
 
-contacts_address = {
-        "street": "335 State St.",
-        "city": "Blairville",
-        "state": "WV",
-        "zip_code": "100001",
-        "country": "USA",
-}
-
-@dataclass
 class FileStorage:
-    file_path: str
+    def __init__(self):
+        self._contacts = []
+        self.file_path = "Week1/contact_manager/contacts.json"
 
-    def save_contacts(self, book: ContactBook) -> None:
+    def save_contacts(self, book_object):
+        serialized_contacts = [contact.to_dict() for contact in book_object.contacts]
 
-        serialized_contacts = [c.to_dict() for c in book._contacts]
-
-        with open(self.file_path, "w") as f:
+        with open("Week1/contact_manager/contacts.json", "w") as f:
             json.dump(serialized_contacts, f, indent=4)
+        return True
 
-    def load_contacts(self) -> ContactBook:
+    def load_contacts(self, file_path):
+        contact_book = ContactBook()
+
         try:
-            with open(self.file_path, "r") as f:
+            with open(file_path, "r") as f:
                 raw_data = json.load(f)
-        
-            contacts_object = [Contact(**data) for data in raw_data]
-            return ContactBook(_contacts=contacts_object)
-        
-        except (FileNotFoundError, json.JSONDecodeError):
-            return ContactBook()
+                       
+            for data in raw_data:
+                contact = Contact(**data)
+                contact_book.add_contact(contact)
 
+            return contact_book.list_all_contacts
+        
+        except FileNotFoundError as e:
+            print(f"The specified file could not be found: {e.strerror}")
+            
+            return False
+        
+        except json.JSONDecodeError as e:
+            print(f"JSON parsing failed: {e.msg}")
+            print(f"Error occurred at line {e.lineno}, column {e.colno}.")
+            
+            return False
+        
+        except TypeError as e:
+            print(f"Type Error: The input provided was not a valid string or bytes object. Details: {e}")
+            
+            return False
