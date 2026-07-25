@@ -24,7 +24,7 @@ print(cust_names_valid)
 def all_names_are_valid_2x(names):
     for name in names:
         cleaned_name = name.strip()
-        if(cleaned_name == "" or len(cleaned_name) < 2):
+        if len(cleaned_name) < 2:
             return False
 
     return True

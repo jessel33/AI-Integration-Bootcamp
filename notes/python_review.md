@@ -155,3 +155,5 @@ How should the counter be increased?
 What value should the function return?
     The function should return the final value of count, as that will be the total number of names starting with the letter 'A'.
 
+
+

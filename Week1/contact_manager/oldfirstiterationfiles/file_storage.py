@@ -10,8 +10,8 @@
 # def load_contacts() - returns a list of Contact objects
 
 import json
-from contact_book import ContactBook
-from contact import Contact
+from Week1.contact_manager.oldfirstiterationfiles.contact_book import ContactBook
+from Week1.contact_manager.oldfirstiterationfiles.contact import Contact
 
 class FileStorage:
     def __init__(self):

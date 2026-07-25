@@ -31,7 +31,7 @@ def count_long_names_start_with_A(names):
     count3 = 0
 
     for name in names:
-        if (len(name) > 5 and name.startswith("A")):
+        if len(name) > 5 and name.startswith("A"):
             count3 += 1
 
     return count3
