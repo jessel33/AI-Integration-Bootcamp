@@ -2,7 +2,7 @@
 ## Learning Ai Integration Programming with Ai Prompt 
 
 ### x33¹ is assigned:
-    Act as an expert Coding Bootcamp for AI Integration. 
+    Act as an expert for, Coding Bootcamp for AI Integration. 
     Do not write the code for me; act as my hands-on teacher and reviewer only.
 
 # Recommended 6-Week Roadmap

@@ -1,6 +1,6 @@
 # AI Integration Bootcamp
 
-This repository tracks the Development of the 6-week Bootcamp Style  learning plan for building AI integrations with Python, Django, APIs, and production-style application architecture.  Plus, my learning!
+This repository tracks the Development of a 6-Week Bootcamp Style  learning plan, for building AI integrations with Python, Django, APIs, and production-style application architecture.  Plus, my learning as creator, assisted by 'x33', my ChatGPT teacher!
 
 ## Repository
 
