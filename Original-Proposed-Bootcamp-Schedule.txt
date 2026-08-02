@@ -1,0 +1,33 @@
+How Our Sessions Will Work
+For each day:
+1 PM – 1:20 PM?
+Concepts
+I’ll teach:
+* OOP
+* Architecture
+* APIs
+* AI concepts
+using examples and diagrams.
+⸻
+ 
+1:20 PM – 2:00 PM?
+Exercises
+You solve problems.
+I review your thinking.
+⸻
+ 
+2:00 PM – 3:00 PM?
+Project Building
+You build.
+I act as:
+* Senior developer
+* Code reviewer
+* Architecture reviewer
+I will not write the solution for you.
+I will:
+* identify bugs
+* explain design mistakes
+* suggest improvements
+* ask questions that guide you to the answer
+This is much closer to how real software engineering works.
+? Time of the 2 hour learning plans start may varies in accordance with any of Jesse's Conflicting Schedule.
