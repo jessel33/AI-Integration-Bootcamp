@@ -1,4 +1,5 @@
 # Projects
+
 ## Week 1 Project:
 Contact Management System
 Build:
@@ -12,7 +13,7 @@ Code organization
 Classes
 Error handling
 
-## Important information from x33...
+## Important information...
 
 What do I have wrong here, hint please:
 from contact_book.py ContactBook class:
