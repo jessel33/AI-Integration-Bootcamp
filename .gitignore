@@ -4,3 +4,4 @@ __pycache__/
 *.pyc
 .env
 .DS_Store
+Week1/contact_manager_project/contact_data.json
