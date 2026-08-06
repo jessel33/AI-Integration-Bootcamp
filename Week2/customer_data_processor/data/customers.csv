@@ -1,4 +1,4 @@
 customer_id,first_name,last_name,email,city,state,country
-1,Alice,Mays,ac9@example.com,Pittsburgh,PA,USA
-2,Jimmy,Doodle,jd1@testing.com,Cranberry,PA,USA
-3,Bill,Buxworth,bb44@samples.com,Phoenix,AZ,USA
+1,Alice,Mays,ac9@example.com,Pittsburgh,PA,US
+2,Jimmy,Doodle,jd1@testing.com,Cranberry,PA,US
+3,Bill,Buxworth,bb44@samples.com,Phoenix,AZ,US
