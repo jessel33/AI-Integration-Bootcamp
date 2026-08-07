@@ -2,3 +2,6 @@ customer_id,first_name,last_name,email,city,state,country
 1,Alice,Mays,ac9@example.com,Pittsburgh,PA,US
 2,Jimmy,Doodle,jd1@testing.com,Cranberry,PA,US
 3,Bill,Buxworth,bb44@samples.com,Phoenix,AZ,US
+4,Petey,Cooker,ac4@gmail.com,New York,NY,US
+5,Abraham,Guchie,ag1@example.com,Atlanta,GA,US
+6,Racer,X,rx33@fastest.com,Emlenton,PA,US
