@@ -1,23 +1,19 @@
 # AI Integration Bootcamp
 ## Learning Ai Integration Programming with Ai Prompt 
 
-### x33¹ is assigned:
+### ChatGPT is instructed to:
     Act as an expert for, Coding Bootcamp for AI Integration. 
     Do not write the code for me; act as my hands-on teacher and reviewer only.
 
 # Recommended 6-Week Roadmap
     10–15 hours/weekGoal: Build production-style AI integrations with Django.
 
-¹Jesse Armstrong's name for his version of ChatGPT AI Agent
-
-————
-
 ## Week 1: Python Engineering Fundamentals
-Topics
+Topics:
 Object-Oriented Programming
-* Classes
-* Objects
-* Methods
+* Classes  
+* Objects  
+* Methods  
 * Constructors
 * Encapsulation
 * Inheritance

@@ -12,6 +12,7 @@
 
 import requests
 import state_codes
+import weather_codes
 
 GEOCODING_ENDPOINT = "https://geocoding-api.open-meteo.com/v1/search"
 OPEN_METEO_FORECAST_ENDPOINT = "https://api.open-meteo.com/v1/forecast"
