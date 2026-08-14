@@ -23,12 +23,12 @@ def process_customers(file_path):
         location = find_location(customer["city"], customer["state"], customer["country"])
         processed_customer = customer.copy()
         if location:
+            weather = {}
             weather = get_current_weather(location["latitude"], location["longitude"])
             weather_code = weather["weather_code"]
-            if weather_code:
-                weather_description = weather_codes.WMO_WEATHER_CODES[weather_code]
-                weather.update({"weather_code": weather_description})
-            
+            if weather_code in range(-1, 101):
+                weather_description = weather_codes.WMO_WEATHER_CODES.get(weather_code)
+                weather["weather_description"] = weather_description           
         else:
             weather = {}
 
