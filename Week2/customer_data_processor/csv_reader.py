@@ -7,6 +7,11 @@
 import csv
 
 def read_customer_csv(file_path):
+    """
+    Receives a filepath to a customers csv file,
+    checks for errors and outputs error messages as needed,
+    returns the csv customer data as dictionaries.
+    """
     try:
         with open(file_path, "r", encoding="utf-8", newline="") as rfile:
             csv_dictionary_reader = csv.DictReader(rfile)

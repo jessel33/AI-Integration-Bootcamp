@@ -37,7 +37,3 @@ def process_customers(file_path):
 
     return processed_customers
 
-
-if __name__ == "__main__":
-    customer_data = process_customers("data/customers.csv")
-    pprint.pprint(customer_data)
