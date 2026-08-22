@@ -1,19 +1,21 @@
 # AI Integration Bootcamp
 ## Learning Ai Integration Programming with Ai Prompt 
 
-### ChatGPT is instructed to:
-    Act as an expert for, Coding Bootcamp for AI Integration. 
+### ChatGPT assignment:
+    Act as an expert Coding Bootcamp for AI Integration. 
     Do not write the code for me; act as my hands-on teacher and reviewer only.
 
 # Recommended 6-Week Roadmap
     10–15 hours/weekGoal: Build production-style AI integrations with Django.
 
+————
+
 ## Week 1: Python Engineering Fundamentals
-Topics:
+Topics
 Object-Oriented Programming
-* Classes  
-* Objects  
-* Methods  
+* Classes
+* Objects
+* Methods
 * Constructors
 * Encapsulation
 * Inheritance
@@ -234,7 +236,7 @@ Business Features
 * Reports
 * Usage tracking
 
-## Finally x33 states:
+## Finally ChatGPT states:
     What I Would Add If You Continue Beyond 6 Weeks
     After this foundation, the next progression would be:
     Weeks 7–10
@@ -246,13 +248,15 @@ Business Features
     * Tool calling
     * Function calling
     * Multi-agent workflows
+  
     These topics are where modern business AI applications are heading, but they make much more sense after you've built several AI-powered applications first.
+    
 For your stated goal, I'd structure our sessions as a 6-week curriculum and treat Week 1 as a software-engineering foundation, Weeks 2–3 as application-building skills, Weeks 4–6 as AI integration and production practices. That sequence mirrors how AI products are actually built in businesses today.
 
 
 
 ## The following infomation is from the original 4-week plan which was scraped.  The information in now for referrence only:
-    x33, please act as an expert computer science tutor. I want to learn to code Ai integrations for apps and businesses. I have beginner experience and knowledge in Python, Django, JsScript, PHP, MySQL, SQL and basic Statistics, but I can dedicate 10-15 hours a week to learning. Create a beginner-friendly 4-week study plan for learning the fundamentals needed for Ai Integration for apps and businesses, breaking down topics week-by-week i.e.
+Act as an expert computer science tutor. I want to learn to code Ai integrations for apps and businesses. I have beginner experience and knowledge in Python, Django, JsScript, PHP, MySQL, SQL and basic Statistics, but I can dedicate 10-15 hours a week to learning. Create a beginner-friendly 4-week study plan for learning the fundamentals needed for Ai Integration for apps and businesses, breaking down topics week-by-week i.e.
 
 ## Week-by-Week Original 4 Week Plan
 1. Object-Oriented Programming (Classes, inheritance).
