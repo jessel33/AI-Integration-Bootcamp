@@ -1,12 +1,13 @@
 # AI Integration Bootcamp
-## Learning Ai Integration Programming with Ai Prompt 
+## Learning Ai Integration Programming with Ai Prompting 
 
 ### ChatGPT assignment:
-    Act as an expert Coding Bootcamp for AI Integration. 
+    Act as an Expert Programming Bootcamp Instructor for AI Integration. 
     Do not write the code for me; act as my hands-on teacher and reviewer only.
 
 # Recommended 6-Week Roadmap
-    10–15 hours/weekGoal: Build production-style AI integrations with Django.
+    Bootcamp's Goal: Learn to build production-style AI integrations with Python, Django, APIs, and production-style application architecture.
+    Time Commitment Approx: 10 - 15 hours/week
 
 ————
 
@@ -120,25 +121,29 @@ Architecture
 Maintainability
 
 ## Week 4: AI Fundamentals and LLM Integration
-Now we finally introduce AI.
-Topics
-LLM Fundamentals
+*Now we finally introduce AI.*  
+### Topics
+**LLM Fundamentals:**
 * Tokens
 * Context windows
 * Temperature
-* System prompts
-Prompt Engineering
+* System prompts  
+
+**Prompt Engineering:**
 * Summarization
 * Classification
 * Extraction
 * Rewriting
-Structured Outputs
-Learn why businesses prefer:
-{
+  
+**Structured Outputs:**  
+    Learn why businesses prefer ->
+``` python
+{  
   "category": "",
   "priority": "",
   "summary": ""
 }
+```
 instead of free text.
 
 ### Project
@@ -266,4 +271,3 @@ Act as an expert computer science tutor. I want to learn to code Ai integrations
 
 ### With practical mini-projects to build from scratch. Do not write the code for me; act as my reviewer only.
 For each week, give me one core concept, a 10-minute reading topic, and one practical project to build from scratch.
-
