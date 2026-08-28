@@ -2,11 +2,13 @@
 ## Learning Ai Integration Programming with Ai Prompting 
 
 ### ChatGPT assignment:
-    Act as an Expert Programming Bootcamp Instructor for AI Integration. 
+    Act as an Expert Programming Bootcamp Instructor for AI Integration.  
     Do not write the code for me; act as my hands-on teacher and reviewer only.
 
 # Recommended 6-Week Roadmap
-    Bootcamp's Goal: Learn to build production-style AI integrations with Python, Django, APIs, and production-style application architecture.
+    Bootcamp's Goal:  
+    Learn to build production-style AI integrations with Python, Django, APIs, and production-style application architecture.  
+    
     Time Commitment Approx: 10 - 15 hours/week
 
 ————
