@@ -5,3 +5,5 @@ __pycache__/
 .env
 .DS_Store
 Week1/contact_manager_project/contact_data.json
+Week3/customer_support_ticket_system/config/.env
+
