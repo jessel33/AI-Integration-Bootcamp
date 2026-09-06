@@ -47,5 +47,5 @@
   "chat.checkpoints.enabled": false,
   "editor.fontFamily": "JetBrainsMonoNerdFontMono, AtkynsonMonoNerdFontMono, 'Andale Mono', 'Courier New', monospace",
   "editor.wordWrap": "on",
-  "editor.acceptSuggestionOnEnter": "off"
+  "editor.acceptSuggestionOnEnter": "off",
 }
