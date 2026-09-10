@@ -1,0 +1,26 @@
+{
+	"folders": [
+		{
+			"path": ".",
+		},
+	],
+	"settings": {
+		"chat.agent.enabled": false,
+		"chat.viewSessions.enabled": false,
+		"chat.extensionTools.enabled": false,
+		"chat.tools.confirmationCarousel.enabled": false,
+		"chat.mcp.access": "none",
+		"chat.disableAIFeatures": true,
+		"workbench.iconTheme": "vscode-icons",
+		"workbench.colorTheme": "Andromeda Bordered",
+		"workbench.editorAssociations": {
+			"*.xml": "default",
+			"*.md": "default",
+			"*.py": "default",
+		},
+		"git.confirmSync": false,
+		"terminal.integrated.initialHint": false,
+		"dbcode.resultLocation": "panel",
+		"chat.checkpoints.enabled": false,
+	},
+}

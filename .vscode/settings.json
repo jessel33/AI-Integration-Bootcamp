@@ -1,51 +1,73 @@
 {
-  "chat.agent.enabled": false,
-  "chat.viewSessions.enabled": false,
-  "chat.extensionTools.enabled": false,
-  "chat.tools.confirmationCarousel.enabled": false,
-  "chat.mcp.access": "none",
-  "chat.disableAIFeatures": true,
-  "editor.fontSize": 13,
-  "python.testing.pytestArgs": ["."],
-  "python.testing.unittestEnabled": false,
-  "python.testing.pytestEnabled": true,
-  "python.analysis.autoImportCompletions": true,
-  "python.analysis.fixAll": ["source.unusedImports"],
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "workbench.iconTheme": "vscode-icons",
-  "gcode.general.units": "Inch",
-  "gcode.views.maxAutoRefresh": 20,
-  "gcode.views.stats.autoRefresh": true,
-  "workbench.colorTheme": "Andromeda Bordered",
-  "pylint.args": ["[]"],
-  "pylint.path": ["\"\""],
-  "redhat.telemetry.enabled": true,
-  "workbench.editorAssociations": {
-    "*.xml": "default",
-    "*.md": "default"
-  },
-  "xml.foldings.includeClosingTagInFold": true,
-  "xml.format.closingBracketNewLine": true,
-  "xml.format.splitAttributes": "alignWithFirstAttr",
-  "editor.formatOnPaste": true,
-  "[xml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "python.analysis.typeCheckingMode": "basic",
-  "git.autofetch": true,
-  "git.enableSmartCommit": true,
-  "git.confirmSync": false,
-  "[markdown]": {
-    "diffEditor.ignoreTrimWhitespace": true
-  },
-  "python.terminal.useEnvFile": true,
-  "editor.pasteAs.preferences": ["text.updateLinks.markdown"],
-  "editor.minimap.enabled": false,
-  "git.openRepositoryInParentFolders": "never",
-  "terminal.integrated.initialHint": false,
-  "dbcode.resultLocation": "panel",
-  "chat.checkpoints.enabled": false,
-  "editor.fontFamily": "JetBrainsMonoNerdFontMono, AtkynsonMonoNerdFontMono, 'Andale Mono', 'Courier New', monospace",
-  "editor.wordWrap": "on",
-  "editor.acceptSuggestionOnEnter": "off",
+	"chat.agent.enabled": false,
+	"chat.viewSessions.enabled": false,
+	"chat.extensionTools.enabled": false,
+	"chat.tools.confirmationCarousel.enabled": false,
+	"chat.mcp.access": "none",
+	"chat.disableAIFeatures": true,
+	"editor.fontSize": 13,
+	"python.testing.pytestArgs": ["."],
+	"python.testing.unittestEnabled": false,
+	"python.testing.pytestEnabled": true,
+	"python.analysis.autoImportCompletions": true,
+	"python.analysis.fixAll": ["source.unusedImports"],
+	"workbench.iconTheme": "vscode-icons",
+	"gcode.general.units": "Inch",
+	"gcode.views.maxAutoRefresh": 20,
+	"gcode.views.stats.autoRefresh": true,
+	"workbench.colorTheme": "Andromeda Bordered",
+	"pylint.args": ["[]"],
+	"pylint.path": ["\"\""],
+	"redhat.telemetry.enabled": true,
+	"workbench.editorAssociations": {
+		"*.xml": "default",
+		"*.md": "default",
+		"*.py": "default"
+	},
+	"xml.foldings.includeClosingTagInFold": true,
+	"xml.format.closingBracketNewLine": true,
+	"xml.format.splitAttributes": "alignWithFirstAttr",
+	"editor.formatOnPaste": true,
+	"python.analysis.typeCheckingMode": "basic",
+	"git.autofetch": true,
+	"git.enableSmartCommit": true,
+	"git.confirmSync": false,
+	"python.terminal.useEnvFile": true,
+	"editor.pasteAs.preferences": ["text.updateLinks.markdown"],
+	"editor.minimap.enabled": false,
+	"git.openRepositoryInParentFolders": "never",
+	"terminal.integrated.initialHint": false,
+	"dbcode.resultLocation": "panel",
+	"chat.checkpoints.enabled": false,
+	"editor.fontFamily": "JetBrainsMonoNerdFontMono, AtkynsonMonoNerdFontMono, 'Andale Mono', 'Courier New', monospace",
+	"editor.wordWrap": "on",
+	"editor.acceptSuggestionOnEnter": "off",
+	"[python]": {
+		"editor.formatOnSave": true,
+		"editor.codeActionsOnSave": {
+			"source.fixAll.ruff": "explicit",
+			"source.organizeImports.ruff": "explicit"
+		},
+		"editor.formatOnPaste": true,
+		"editor.formatOnType": true,
+		"editor.inlineSuggest.enabled": true,
+		"editor.defaultFormatter": "charliermarsh.ruff"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[jsonc]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[markdown]": {
+		"diffEditor.ignoreTrimWhitespace": true,
+		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[xml]": {
+		"editor.defaultFormatter": "PrateekMahendrakar.prettyxml"
+	}
 }
