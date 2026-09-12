@@ -3,6 +3,7 @@ from django.shortcuts import redirect, render
 from django.template import loader
 
 from .forms import SupportTicket
+from .services import create_new_support_ticket
 
 
 def supporttickets(request):
@@ -13,12 +14,8 @@ def supporttickets(request):
             model_number = form.cleaned_data["model_number"]
             scope_of_work = form.cleaned_data["scope_of_work"]
             customer = form.cleaned_data["customer"]
-            service_rep = form.cleaned_data["service_rep"]
-            service_rep_notes = form.cleaned_data["service_rep_notes"]
-            repair_status = form.cleaned_data["repair_status"]
-            ticket_completed_at = form.cleaned_data["ticket_complete_at"]
 
-            form.save()
+            create_new_support_ticket(model_name, model_number, scope_of_work, customer)
 
             return redirect("success")
 

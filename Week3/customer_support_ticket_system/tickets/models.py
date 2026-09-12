@@ -43,7 +43,7 @@ class SupportTicket(models.Model):
     service_rep = models.ForeignKey(
         ServiceRepresentative, on_delete=models.RESTRICT, null=True, blank=True
     )
-    service_rep_notes = models.TextField(max_length=1000)
+    service_rep_notes = models.TextField(max_length=1000, blank=True)
     repair_status = models.CharField(
         choices=COMPL_STATUS, max_length=20, default="Pending"
     )

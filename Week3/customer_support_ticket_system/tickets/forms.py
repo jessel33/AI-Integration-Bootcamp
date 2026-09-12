@@ -11,10 +11,6 @@ class SupportTicket(forms.ModelForm):
             "model_number",
             "scope_of_work",
             "customer",
-            "service_rep",
-            "service_rep_notes",
-            "repair_status",
-            "ticket_completed_at",
         ]
 
 

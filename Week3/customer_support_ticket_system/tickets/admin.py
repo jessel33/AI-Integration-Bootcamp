@@ -17,7 +17,6 @@ class SupportTicketAdmin(admin.ModelAdmin):
 
 class CustomerAdmin(admin.ModelAdmin):
     list_display = (
-        "id",
         "customer_name",
         "street",
         "city",

@@ -43,13 +43,10 @@
 	"editor.wordWrap": "on",
 	"editor.acceptSuggestionOnEnter": "off",
 	"[python]": {
-		"editor.formatOnSave": true,
 		"editor.codeActionsOnSave": {
-			"source.fixAll.ruff": "explicit",
 			"source.organizeImports.ruff": "explicit"
 		},
 		"editor.formatOnPaste": true,
-		"editor.formatOnType": true,
 		"editor.inlineSuggest.enabled": true,
 		"editor.defaultFormatter": "charliermarsh.ruff"
 	},
