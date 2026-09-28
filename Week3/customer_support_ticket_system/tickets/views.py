@@ -13,17 +13,26 @@ def supporttickets(request):
             model_name = form.cleaned_data["model_name"]
             model_number = form.cleaned_data["model_number"]
             scope_of_work = form.cleaned_data["scope_of_work"]
-            customer = form.cleaned_data["customer"]
+            customer_object = form.cleaned_data["customer"]
+            customer_id = customer_object.customer_id
+            captured_support_ticket = create_new_support_ticket(
+                model_name, model_number, scope_of_work, customer_id
+            )
+            if captured_support_ticket is not None:
+                ticket_id = captured_support_ticket.ticket_id
+                return redirect("success", ticket_id)
 
-            create_new_support_ticket(model_name, model_number, scope_of_work, customer)
-
-            return redirect("success")
-
+            else:
+                return render(
+                    request,
+                    "ticket.html",
+                    {"form": form, "message": "Customer was not found in database."},
+                )
         else:
-            pass
+            return render(request, "ticket.html", {"form": form})
     else:
         form = SupportTicket()
-    return render(request, "ticket.html", {"form": form})
+        return render(request, "ticket.html", {"form": form})
 
 
 def main(request):
@@ -31,6 +40,7 @@ def main(request):
     return HttpResponse(template.render())
 
 
-def success(request):
+def success(request, ticket_id):
     template = loader.get_template("success.html")
-    return HttpResponse(template.render())
+    context = {"ticket_id": ticket_id}
+    return HttpResponse(template.render(context, request))
