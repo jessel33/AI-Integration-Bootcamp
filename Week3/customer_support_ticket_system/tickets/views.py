@@ -1,9 +1,9 @@
-from django.http import HttpResponse
+from django.http import Http404, HttpResponse
 from django.shortcuts import redirect, render
 from django.template import loader
 
 from .forms import SupportTicket
-from .services import create_new_support_ticket
+from .services import create_new_support_ticket, get_support_ticket
 
 
 def supporttickets(request):
@@ -41,6 +41,9 @@ def main(request):
 
 
 def success(request, ticket_id):
+    support_ticket = get_support_ticket(ticket_id)
+    if support_ticket is None:
+        raise Http404
     template = loader.get_template("success.html")
-    context = {"ticket_id": ticket_id}
+    context = {"support_ticket": support_ticket}
     return HttpResponse(template.render(context, request))

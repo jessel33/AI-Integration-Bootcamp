@@ -46,7 +46,10 @@
 						>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="/tickets" style="cursor: text"
+						<a
+							class="nav-link"
+							href="/supporttickets"
+							style="cursor: text"
 							>Create Support Ticket</a
 						>
 					</li>
@@ -57,6 +60,10 @@
 			<div class="success-message">
 				<h1>Success!</h1>
 				<p>Your request has been processed.</p>
+				<p>Support ticket number: {{ support_ticket.ticket_id }}</p>
+				<p>Model Name: {{ support_ticket.model_name }}</p>
+				<p>Model Number: {{ support_ticket.model_number }}</p>
+				<p>Repair Status: {{ support_ticket.repair_status }}</p>
 			</div>
 		</div>
 	</body>
