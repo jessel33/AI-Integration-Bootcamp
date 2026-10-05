@@ -66,5 +66,6 @@
 	},
 	"[xml]": {
 		"editor.defaultFormatter": "PrateekMahendrakar.prettyxml"
-	}
+	},
+	"python.REPL.enableREPLSmartSend": false
 }

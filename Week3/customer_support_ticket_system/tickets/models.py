@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 
 
@@ -53,13 +54,27 @@ class SupportTicket(models.Model):
         return f"{self.ticket_id}"
 
 
-class HistTicketRecord(models.Model):
-    ticket = models.ForeignKey(SupportTicket, on_delete=models.CASCADE)
+class TicketAssignmentHistory(models.Model):
+    ticket = models.ForeignKey(
+        SupportTicket, related_name="assignment_records", on_delete=models.CASCADE
+    )
     service_rep = models.ForeignKey(ServiceRepresentative, on_delete=models.RESTRICT)
     ticket_assigned_timestamp = models.DateTimeField(editable=True)
-    ticket_unassigned_timestamp = models.DateTimeField(
-        null=True, blank=True, editable=True
-    )
+    ticket_unassigned_timestamp = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
-        return f"{self.ticket}"
+        return f"Ticket: {self.ticket} Service Rep: {self.service_rep}"
+
+
+class TicketStatusHistory(models.Model):
+    ticket = models.ForeignKey(
+        SupportTicket, related_name="status_records", on_delete=models.CASCADE
+    )
+    status = models.CharField(
+        choices=SupportTicket.COMPL_STATUS, max_length=20, default="Pending"
+    )
+    changed_timestamp = models.DateTimeField(auto_now_add=True)
+    changed_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.RESTRICT)
+
+    def __str__(self):
+        return f"Ticket: {self.ticket} Status: {self.status}"
