@@ -3,7 +3,7 @@ from django import forms
 from .models import Customer, ServiceRepresentative, SupportTicket
 
 
-class SupportTicket(forms.ModelForm):
+class SupportTicketForm(forms.ModelForm):
     class Meta:
         model = SupportTicket
         fields = (
@@ -14,7 +14,7 @@ class SupportTicket(forms.ModelForm):
         )
 
 
-class Customer(forms.ModelForm):
+class CustomerForm(forms.ModelForm):
     class Meta:
         model = Customer
         fields = (
@@ -28,7 +28,7 @@ class Customer(forms.ModelForm):
         )
 
 
-class ServiceRepresentative(forms.ModelForm):
+class ServiceRepresentativeForm(forms.ModelForm):
     class Meta:
         model = ServiceRepresentative
         fields = (
@@ -39,3 +39,13 @@ class ServiceRepresentative(forms.ModelForm):
             "start_date",
             "specialization",
         )
+
+
+class ChangeSupportTicketStatus(forms.ModelForm):
+    class Meta:
+        model = SupportTicket
+        fields = ("repair_status",)
+
+
+class SelectSupportTicket(forms.Form):
+    ticket_id = forms.IntegerField()

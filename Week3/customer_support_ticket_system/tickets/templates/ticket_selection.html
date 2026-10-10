@@ -1,0 +1,17 @@
+{% extends "master.html" %} {% block title %} Support Ticket Selection {% endblock %} {% block content %}
+<div class="container-fluid text-center p-5 bg-info">
+	<h1 class="display-1" style="color: #cc5500">Select a Support Ticket</h1>
+</div>
+<div class="container my-3">
+	{% if message %}
+	<p class="text-danger">{{ message }}</p>
+	{% endif %}
+</div>
+<div class="container my-3">
+	<form action="" method="POST">
+		<div class="mb-3">{% csrf_token %} {{ form.as_p }}</div>
+		<input type="submit" />
+	</form>
+</div>
+
+{% endblock %}

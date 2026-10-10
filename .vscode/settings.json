@@ -67,5 +67,21 @@
 	"[xml]": {
 		"editor.defaultFormatter": "PrateekMahendrakar.prettyxml"
 	},
-	"python.REPL.enableREPLSmartSend": false
+	"[django-html]": {
+		"editor.formatOnSave": false,
+		"editor.formatOnPaste": false,
+		"editor.quickSuggestions": {
+			"other": true,
+			"comments": true,
+			"strings": true
+		}
+	},
+	"python.REPL.enableREPLSmartSend": false,
+	"python-envs.pythonProjects": [
+		{
+			"path": ".",
+			"envManager": "ms-python.python:venv",
+			"packageManager": "ms-python.python:pip"
+		}
+	]
 }

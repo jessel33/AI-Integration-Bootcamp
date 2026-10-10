@@ -1,0 +1,15 @@
+{% extends "master.html" %} {% block title %} Changing Repair Status on No.{{ captured_ticket.ticket_id}} {%endblock%}
+{% block content %}
+<div class="container-fluid text-center p-5 bg-info">
+	<h1 class="display-1" style="color: #cc5500">
+		Changing Repair Status on Support Ticket No.{{ captured_ticket.ticket_id}}
+	</h1>
+</div>
+<div class="container my-3">
+	<form action="" method="POST">
+		<div class="mb-3">{% csrf_token %} {{ form.as_p }}</div>
+		<input type="submit" />
+	</form>
+</div>
+
+{% endblock %}
