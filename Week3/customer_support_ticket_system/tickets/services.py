@@ -51,6 +51,10 @@ def change_support_ticket_status(ticket_id, new_status, changed_by):
 
     if support_ticket_object is None:
         return None
+
+    elif support_ticket_object.repair_status == new_status:
+        return (support_ticket_object, False)
+
     else:
         history_data = {
             "ticket": support_ticket_object,
@@ -65,4 +69,4 @@ def change_support_ticket_status(ticket_id, new_status, changed_by):
 
             create_ticket_status_history(history_data)
 
-        return changed_support_ticket
+        return (changed_support_ticket, True)

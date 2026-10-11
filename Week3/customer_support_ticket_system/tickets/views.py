@@ -91,14 +91,19 @@ def change_ticket_status(request, ticket_id):
             changed_support_ticket = change_support_ticket_status(
                 ticket_id, new_status, changed_by
             )
-            if changed_support_ticket is not None:
-                return redirect("success", ticket_id, "status_changed")
-            else:
+            if changed_support_ticket is None:
                 return render(
                     request,
                     "change_ticket_status.html",
                     {"form": form, "captured_ticket": captured_ticket},
                 )
+            else:
+                _ticket, status_change = changed_support_ticket
+
+                if status_change:
+                    return redirect("success", ticket_id, "status_changed")
+                else:
+                    return redirect("success", ticket_id, "status_unchanged")
         else:
             return render(
                 request,
@@ -121,9 +126,15 @@ def success(request, ticket_id, operation):
 
     if operation == "status_changed":
         message = "Status successfully changed."
+        declaration_message = "Success!"
+
+    elif operation == "status_unchanged":
+        message = f"No changes made.  Repair status is already {support_ticket.repair_status}."
+        declaration_message = "No Changes Made"
 
     elif operation == "ticket_created":
         message = "Your request has been processed."
+        declaration_message = "Success!"
 
     else:
         raise Http404
@@ -132,6 +143,7 @@ def success(request, ticket_id, operation):
     context = {
         "support_ticket": support_ticket,
         "title": "Customer Information",
+        "declaration_message": declaration_message,
         "message": message,
     }
     return HttpResponse(template.render(context, request))
