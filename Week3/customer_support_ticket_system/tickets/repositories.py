@@ -48,3 +48,10 @@ def create_ticket_status_history(history_data):
     """This function takes the support ticket number, the updated repair status, and the user who is changing it, then sends this onto the ORM for model object creation, once the object model is created it then will return a ticket_status_history model object"""
     ticket_status_history = TicketStatusHistory.objects.create(**history_data)
     return ticket_status_history
+
+
+def update_support_ticket_summary(support_ticket, support_ticket_summary):
+    """This function takes a Support Ticket object with the Ai support ticket summary. Then it add the summary to the model's Ai_summary column and saves it through the ORM."""
+    support_ticket.ai_summary = support_ticket_summary
+    support_ticket.save(update_fields=["ai_summary"])
+    return support_ticket
