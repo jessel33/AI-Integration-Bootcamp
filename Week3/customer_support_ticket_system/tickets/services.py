@@ -9,12 +9,29 @@
 from django.db import transaction
 
 from .repositories import (
+    create_customer,
     create_support_ticket,
     create_ticket_status_history,
     get_customer_by_id,
     get_support_ticket_by_id,
     update_support_ticket_status,
 )
+
+
+def register_customer(customer_name, street, city, state, country, phone, email):
+    """Function accepts 7 arguments, creates customer data, send it to repositories then waits for returned created customer id which it then returns back to views."""
+    customer_data = {
+        "customer_name": customer_name,
+        "street": street,
+        "city": city,
+        "state": state,
+        "country": country,
+        "phone": phone,
+        "email": email,
+    }
+
+    customer = create_customer(customer_data)
+    return customer
 
 
 def create_new_support_ticket(model_name, model_number, scope_of_work, customer_id):
@@ -70,3 +87,10 @@ def change_support_ticket_status(ticket_id, new_status, changed_by):
             create_ticket_status_history(history_data)
 
         return (changed_support_ticket, True)
+
+
+def generate_support_ticket_summary(ticket_id):
+    support_ticket_object = get_support_ticket_by_id(ticket_id)
+
+    if support_ticket_object is None:
+        return

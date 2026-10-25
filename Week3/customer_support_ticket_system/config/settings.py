@@ -16,20 +16,25 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 load_dotenv()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-5m24jr7#9d5uj_67g$pn0cv53kl&r_%9&9%#kvt29fask-$=kd"
+SECRET_KEY = os.getenv("SECRET_KEY")
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+
+# AI Integration: OpenAi API
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 
 # Application definition

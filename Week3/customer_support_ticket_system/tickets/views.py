@@ -5,6 +5,7 @@ from django.template import loader
 
 from .forms import (
     ChangeSupportTicketStatus,
+    CustomerForm,
     SelectSupportTicket,
     SupportTicketForm,
 )
@@ -12,12 +13,43 @@ from .services import (
     change_support_ticket_status,
     create_new_support_ticket,
     get_support_ticket,
+    register_customer,
 )
 
 
 def main(request):
     template = loader.get_template("main.html")
     return HttpResponse(template.render())
+
+
+def customer(request):
+    if request.method == "POST":
+        form = CustomerForm(request.POST)
+        if form.is_valid():
+            customer_name = form.cleaned_data["customer_name"]
+            street = form.cleaned_data["street"]
+            city = form.cleaned_data["city"]
+            state = form.cleaned_data["state"]
+            country = form.cleaned_data["country"]
+            phone = form.cleaned_data["phone"]
+            email = form.cleaned_data["email"]
+            captured_customer = register_customer(
+                customer_name, street, city, state, country, phone, email
+            )
+            if captured_customer is not None:
+                customer_id = captured_customer.customer_id
+                return redirect("registered", customer_id)
+            else:
+                return render(
+                    request,
+                    "customer.html",
+                    {"form": form, "message": "Customer already in database."},
+                )
+        else:
+            return render(request, "customer.html", {"form": form})
+    else:
+        form = CustomerForm()
+        return render(request, "customer.html", {"form": form})
 
 
 def supporttickets(request):

@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
@@ -18,7 +18,7 @@
 				align-items: center;
 				height: 100vh;
 				margin: 0;
-				background-color: #f4f4f4;
+				background-color: #dbdad6;
 			}
 
 			.success-message {
@@ -29,20 +29,37 @@
 				background-color: #dff0d8;
 				color: #3c763d;
 			}
+			.none-success-message {
+				text-align: center;
+				padding: 20px;
+				border: 2px solid #2d2805;
+				border-radius: 5px;
+				background-color: #fcf3b2;
+				color: #650202;
+			}
+
 		</style>
 	</head>
 	<body>
-		<script
+		<script>
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
 			crossorigin="anonymous"
-		></script>
+		</script>
 		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 			<div class="container-fluid">
 				<ul class="navbar-nav">
 					<li class="nav-item">
 						<a class="nav-link" href="/main" style="cursor: crosshair"
 							>Home</a
+						>
+					</li>
+					<li class="nav-item">
+						<a
+							class="nav-link"
+							href="/customer"
+							style="cursor: text"
+							>Register Customer</a
 						>
 					</li>
 					<li class="nav-item">
@@ -65,14 +82,25 @@
 			</div>
 		</nav>
 		<div class="body">
-			<div class="success-message">
-				<h1>{{ declaration_message }}</h1>
-				<p>{{ message }}</p>
-				<p>Support ticket number: {{ support_ticket.ticket_id }}</p>
-				<p>Model Name: {{ support_ticket.model_name }}</p>
-				<p>Model Number: {{ support_ticket.model_number }}</p>
-				<p>Repair Status: {{ support_ticket.repair_status }}</p>
-			</div>
+			{% if declaration_message  == "No Changes Made" %}
+				<div class="none-success-message">
+					<h1>{{ declaration_message }}</h1>
+					<p>{{ message }}</p>
+					<p>Support ticket number: {{ support_ticket.ticket_id }}</p>
+					<p>Model Name: {{ support_ticket.model_name }}</p>
+					<p>Model Number: {{ support_ticket.model_number }}</p>
+					<p>Repair Status: {{ support_ticket.repair_status }}</p>
+				</div>
+			{% else %}
+				<div class="success-message">
+					<h1>{{ declaration_message }}</h1>
+					<p>{{ message }}</p>
+					<p>Support ticket number: {{ support_ticket.ticket_id }}</p>
+					<p>Model Name: {{ support_ticket.model_name }}</p>
+					<p>Model Number: {{ support_ticket.model_number }}</p>
+					<p>Repair Status: {{ support_ticket.repair_status }}</p>
+				</div>
+			{% endif%}
 		</div>
 	</body>
 </html>

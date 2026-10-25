@@ -12,4 +12,6 @@ urlpatterns = [
     ),
     path("ticket_selection/", views.select_support_ticket, name="ticket_selection"),
     path("main/", views.main, name="main"),
+    path("customer/", views.customer, name="customer"),
+    path("registered/", views.customer, name="customer"),
 ]
