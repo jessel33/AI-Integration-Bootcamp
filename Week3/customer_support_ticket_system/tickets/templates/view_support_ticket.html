@@ -41,6 +41,9 @@
         <p>Repair Status: {{ support_ticket.repair_status }}</p>
         <p>Scope of Work: {{ support_ticket.scope_of_work }}</p>
         <h4>SOW Ai Summary:</h4>
+        {% for notification in messages %}
+        <p>{{ notification }}</p>
+        {% endfor %}
         {% if support_ticket.ai_summary %}
             <div class="container ai">
                 <p>{{ support_ticket.ai_summary }}</p>

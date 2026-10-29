@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import Http404, HttpResponse
 from django.shortcuts import redirect, render
@@ -158,6 +159,7 @@ def view_support_ticket(request, ticket_id):
     elif request.method == "POST":
         updated_ticket = generate_support_ticket_summary(ticket_id)
         if updated_ticket is not None:
+            messages.success(request, "The AI Summary generated successfully.")
             return redirect("view_support_ticket", ticket_id)
 
         message = "Could not generate an AI summary. Please try again."

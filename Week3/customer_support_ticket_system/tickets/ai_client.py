@@ -29,6 +29,10 @@ def summarize_scope_of_work(scope_of_work):
         logger.warning("Could not connect to OpenAI while summarizing ticket.")
         return None
 
-    except APIStatusError:
-        logger.warning("OpenAI returned an API error while summarizing ticket.")
+    except APIStatusError as error:
+        logger.warning(
+            "OpenAI returned an API error while summarizing the ticket. %s",
+            error.status_code,
+        )
+
         return None
