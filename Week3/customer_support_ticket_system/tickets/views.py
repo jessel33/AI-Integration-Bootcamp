@@ -37,15 +37,9 @@ def customer(request):
             captured_customer = register_customer(
                 customer_name, street, city, state, country, phone, email
             )
-            if captured_customer is not None:
-                customer_id = captured_customer.customer_id
-                return redirect("registered", customer_id)
-            else:
-                return render(
-                    request,
-                    "customer.html",
-                    {"form": form, "message": "Customer already in database."},
-                )
+            customer_id = captured_customer.customer_id
+            return redirect("registered", customer_id)
+
         else:
             return render(request, "customer.html", {"form": form})
     else:

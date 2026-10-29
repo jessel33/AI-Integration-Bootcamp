@@ -21,7 +21,7 @@ from .repositories import (
 
 
 def register_customer(customer_name, street, city, state, country, phone, email):
-    """Function accepts 7 arguments, creates customer data, send it to repositories then waits for returned created customer id which it then returns back to views."""
+    """Function accepts 7 arguments, creates customer data, send it to repositories then waits for returned created customer object which it then returns back to views."""
     customer_data = {
         "customer_name": customer_name,
         "street": street,
