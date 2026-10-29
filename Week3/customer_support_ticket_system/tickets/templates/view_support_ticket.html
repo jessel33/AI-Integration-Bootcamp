@@ -51,6 +51,17 @@
             </div>
         {% endif %}
 
+        <div class="container my-3">
+            <form method="POST">
+                <div class="mb-3">{% csrf_token %}</div>
+                <button type="submit" class="btn btn-primary">Generate Ai Summary</button>
+            </form>
+        </div>
+{% if message %}
+{{ message }}
+{% endif %}
+
+
     </div>
 </div>
 

@@ -12,6 +12,7 @@ from .forms import (
 from .services import (
     change_support_ticket_status,
     create_new_support_ticket,
+    generate_support_ticket_summary,
     get_support_ticket,
     register_customer,
 )
@@ -157,12 +158,20 @@ def change_ticket_status(request, ticket_id):
 @login_required
 def view_support_ticket(request, ticket_id):
     captured_ticket = get_support_ticket(ticket_id)
+    message = ""
     if captured_ticket is None:
         raise Http404
+    elif request.method == "POST":
+        updated_ticket = generate_support_ticket_summary(ticket_id)
+        if updated_ticket is not None:
+            return redirect("view_support_ticket", ticket_id)
+
+        message = "Could not generate an AI summary. Please try again."
 
     template = loader.get_template("view_support_ticket.html")
     context = {
         "support_ticket": captured_ticket,
+        "message": message,
     }
     return HttpResponse(template.render(context, request))
 
