@@ -81,7 +81,7 @@ def supporttickets(request):
         return render(request, "ticket.html", {"form": form})
 
 
-def select_support_ticket(request):
+def select_support_ticket(request, purpose):
     if request.method == "POST":
         form = SelectSupportTicket(request.POST)
         if form.is_valid():
@@ -89,6 +89,9 @@ def select_support_ticket(request):
             captured_ticket = get_support_ticket(ticket_id)
             if captured_ticket is not None:
                 ticket_id = captured_ticket.ticket_id
+                if purpose == "view":
+                    return redirect("view_support_ticket", ticket_id)
+
                 return redirect("change_ticket_status", ticket_id)
             else:
                 return render(
@@ -149,6 +152,19 @@ def change_ticket_status(request, ticket_id):
             "change_ticket_status.html",
             {"form": form, "captured_ticket": captured_ticket},
         )
+
+
+@login_required
+def view_support_ticket(request, ticket_id):
+    captured_ticket = get_support_ticket(ticket_id)
+    if captured_ticket is None:
+        raise Http404
+
+    template = loader.get_template("view_support_ticket.html")
+    context = {
+        "support_ticket": captured_ticket,
+    }
+    return HttpResponse(template.render(context, request))
 
 
 def success(request, ticket_id, operation):

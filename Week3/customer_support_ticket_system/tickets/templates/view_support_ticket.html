@@ -1,0 +1,57 @@
+{% extends "master.html" %} {% block title %} Viewing Support Ticket {{ support_ticket.ticket_id }}
+{%endblock%} {% block content %}
+<div class="container-fluid text-center p-5 bg-info">
+	<h1 class="display-1" style="color: #cc5500">Support Ticket Viewing Page</h1>
+</div>
+<style>
+    .body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f8f2d8;
+    }
+    .success-message {
+        text-align: center;
+        padding: 20px;
+        border: 2px solid #4c57af;
+        border-radius: 5px;
+        background-color: #dbdef3;
+        color: #3c3d76;
+    }
+    div.ai {
+        width: 450px;
+        text-align: center;
+        word-wrap: normal;
+        padding: 25px;
+        border: 2px solid #4c57af;
+        border-radius: 10px;
+        background-color: #dbdef3;
+        color: #3c3d76;
+
+    }
+</style>
+<div class="body">
+    <div class="success-message">
+        <p>Support ticket number: {{ support_ticket.ticket_id }}</p>
+        <p>Model Name: {{ support_ticket.model_name }}</p>
+        <p>Model Number: {{ support_ticket.model_number }}</p>
+        <p>Repair Status: {{ support_ticket.repair_status }}</p>
+        <p>Scope of Work: {{ support_ticket.scope_of_work }}</p>
+        <h4>SOW Ai Summary:</h4>
+        {% if support_ticket.ai_summary %}
+            <div class="container ai">
+                <p>{{ support_ticket.ai_summary }}</p>
+            </div>
+        {% else %}
+            <div class="container ai">
+                <p>“No AI summary generated yet.”</p>
+            </div>
+        {% endif %}
+
+    </div>
+</div>
+
+{% endblock %}
