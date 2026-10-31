@@ -3,7 +3,8 @@ venv/
 __pycache__/
 *.pyc
 .env
+*.env
 .DS_Store
 Week1/contact_manager_project/contact_data.json
 Week3/customer_support_ticket_system/config/.env
-
+Week4/ai_ticket_analyzer/.env
