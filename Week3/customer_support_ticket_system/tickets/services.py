@@ -36,8 +36,10 @@ def register_customer(customer_name, street, city, state, country, phone, email)
     return customer
 
 
-def create_new_support_ticket(model_name, model_number, scope_of_work, customer_id):
-    """Function accepts 4 arguments, call repositories for customer object, then creates support ticket data, send it to repositories then waits for returned created support ticket which it then returns back to views."""
+def create_new_support_ticket(
+    model_name, model_number, scope_of_work, customer_id, priority
+):
+    """Function accepts 5 arguments, call repositories for customer object, then creates support ticket data, send it to repositories then waits for returned created support ticket which it then returns back to views."""
     customer_object = get_customer_by_id(customer_id)
 
     if customer_object is None:
@@ -48,6 +50,7 @@ def create_new_support_ticket(model_name, model_number, scope_of_work, customer_
             "model_number": model_number,
             "scope_of_work": scope_of_work,
             "customer": customer_object,
+            "priority": priority,
             "repair_status": "Pending",
         }
 

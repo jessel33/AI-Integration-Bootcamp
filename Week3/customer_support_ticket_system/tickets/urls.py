@@ -29,5 +29,5 @@ urlpatterns = [
     ),
     path("main/", views.main, name="main"),
     path("customer/", views.customer, name="customer"),
-    path("registered/", views.customer, name="customer"),
+    path("registered/", views.customer, name="customer_registered"),
 ]

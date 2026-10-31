@@ -56,9 +56,14 @@ def supporttickets(request):
             model_number = form.cleaned_data["model_number"]
             scope_of_work = form.cleaned_data["scope_of_work"]
             customer_object = form.cleaned_data["customer"]
+            priority = form.cleaned_data["priority"]
             customer_id = customer_object.customer_id
             captured_support_ticket = create_new_support_ticket(
-                model_name, model_number, scope_of_work, customer_id
+                model_name,
+                model_number,
+                scope_of_work,
+                customer_id,
+                priority,
             )
             if captured_support_ticket is not None:
                 ticket_id = captured_support_ticket.ticket_id

@@ -35,12 +35,20 @@ class SupportTicket(models.Model):
         ("Completed", "Completed"),
         ("Cancelled", "Cancelled"),
     )
+    PRIORITY_CHOICES = (
+        ("Low", "Low"),
+        ("Normal", "Normal"),
+        ("High", "High"),
+    )
     ticket_id = models.AutoField(primary_key=True)
     model_name = models.CharField(max_length=80)
     model_number = models.CharField(max_length=20)
     scope_of_work = models.TextField(max_length=1000)
     ticket_creation_timestamp = models.DateTimeField(auto_now_add=True)
     customer = models.ForeignKey(Customer, on_delete=models.RESTRICT)
+    priority = models.CharField(
+        choices=PRIORITY_CHOICES, max_length=10, default="Normal"
+    )
     service_rep = models.ForeignKey(
         ServiceRepresentative, on_delete=models.RESTRICT, null=True, blank=True
     )
@@ -52,7 +60,7 @@ class SupportTicket(models.Model):
     ai_summary = models.TextField(max_length=1500, blank=True)
 
     def __str__(self):
-        return f"Ticket ID: {self.ticket_id} Status: {self.repair_status}"
+        return f"Ticket ID: {self.ticket_id} Priority: {self.priority} Status: {self.repair_status}"
 
 
 class TicketAssignmentHistory(models.Model):

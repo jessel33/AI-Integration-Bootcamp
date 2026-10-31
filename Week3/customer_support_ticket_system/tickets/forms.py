@@ -6,12 +6,7 @@ from .models import Customer, ServiceRepresentative, SupportTicket
 class SupportTicketForm(forms.ModelForm):
     class Meta:
         model = SupportTicket
-        fields = (
-            "model_name",
-            "model_number",
-            "scope_of_work",
-            "customer",
-        )
+        fields = ("model_name", "model_number", "scope_of_work", "customer", "priority")
 
 
 class CustomerForm(forms.ModelForm):
