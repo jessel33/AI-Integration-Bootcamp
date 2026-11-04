@@ -1,0 +1,17 @@
+<!-- analyze_ticket.html -->
+<h1>Complaint Form</h1>
+<form action="" method="POST">
+	<div class="mb-3">{% csrf_token %} {{ form.as_p }}</div>
+	<input value="Analyze Ticket" type="submit" />
+</form>
+
+{% if result %}
+    <!-- Displays analysis here -->
+    <p>Category: {{ result.category }}</p>
+    <p>Priority: {{ result.priority }}</p>
+    <p>Summary: {{ result.summary }}</p>
+{% endif %}
+
+{% if error_message %}
+    <h3>Error: {{ error_message }}</h3>
+{% endif %}
