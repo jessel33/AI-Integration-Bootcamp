@@ -5,4 +5,4 @@ from django import forms
 
 
 class TicketComplaintForm(forms.Form):
-    complaint = forms.CharField(widget=forms.Textarea)
+    complaint = forms.CharField(widget=forms.Textarea(attrs={"class": "form-control"}))

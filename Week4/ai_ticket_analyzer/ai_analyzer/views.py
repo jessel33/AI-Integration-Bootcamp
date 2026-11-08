@@ -2,7 +2,9 @@
 # this views file handles both GET and POST requests
 # coming from the forms.py
 #
+from django.http import HttpResponse
 from django.shortcuts import render
+from django.template import loader
 
 from .ai_client import analyze_ticket
 from .forms import TicketComplaintForm
@@ -24,3 +26,8 @@ def analyze_ticket_view(request):
 
     context = {"form": form, "result": result, "error_message": error_message}
     return render(request, "ai_analyzer/analyze_ticket.html", context)
+
+
+def main(request):
+    template = loader.get_template("main.html")
+    return HttpResponse(template.render())
