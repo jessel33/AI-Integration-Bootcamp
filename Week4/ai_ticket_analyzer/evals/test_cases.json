@@ -1,0 +1,27 @@
+[
+	{
+		"complaint": "The CNC spindle has seized and production has stopped",
+		"expected_category": "mechanical",
+		"expected_priority": "critical"
+	},
+	{
+		"complaint": "The control panel display flickers several times per shift, temporarily preventing the operator from reading machine information. Restarting the display restores normal operation, but interrupts the operator's work.",
+		"expected_category": "electrical",
+		"expected_priority": "medium"
+	},
+	{
+		"complaint": "Wrong-colored machine enclosure.",
+		"expected_category": "other",
+		"expected_priority": "low"
+	},
+	{
+		"complaint": "Repeated loss of tool offsets causing major delays",
+		"expected_category": "software",
+		"expected_priority": "high"
+	},
+	{
+		"complaint": "The coolant pump makes unusual noise; machine works normally.",
+		"expected_category": "mechanical",
+		"expected_priority": "low"
+	}
+]
