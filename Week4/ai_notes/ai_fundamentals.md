@@ -15,19 +15,15 @@ An LLM might break that sentence into tokens resembling:
 
 Illustrative token breakdown — not exact
 
-The
-
-&#x20;CNC
-
-&#x20;spindle
-
-&#x20;is
-
-&#x20;over
-
-heating
-
-.
+> #### Tokens
+>
+> - The
+> - CNC
+> - spindle
+> - is
+> - over
+> - heating
+> - .
 
 Notice that overheating might be represented by multiple tokens.
 
@@ -60,6 +56,8 @@ Before moving on, remember this one distinction:
 
 Tokens are the units of text. The context window is the model's working capacity
 for those units.
+
+---
 
 ## Week 4 — LLM Fundamentals
 
@@ -125,6 +123,8 @@ Temperature controls aren't available on every model.
 
 Excellent, Partner! 😄🍀 You're keeping a great pace, so let's move forward.
 
+---
+
 ## Week 4 — LLM Fundamentals
 
 ### Lesson 3: Temperature
@@ -180,6 +180,8 @@ to a difficult problem.
 
 Next lesson: System prompts and instruction hierarchy — how to tell an LLM what
 its job is and how to handle customer input safely.
+
+---
 
 ## Week 4 — LLM Fundamentals
 
@@ -301,6 +303,8 @@ This can help improve consistency when classification decisions are ambiguous.
 We'll start with a practical example using our existing Ticket Analyzer before
 making any code changes.
 
+---
+
 ### Today's lesson: Few-Shot Prompting
 
 Last session, we successfully tested our AI Ticket Analyzer against a prompt
@@ -319,6 +323,8 @@ Then we'll decide whether our existing prompt would actually benefit from adding
 examples.
 
 No need to change any code yet.
+
+---
 
 ## Week 4 — Prompt Engineering
 
@@ -461,6 +467,8 @@ Then we can use a few-shot example to reinforce the rule.
 
 We're moving from simply making the AI work to teaching it how our business
 makes decisions. That's the heart of practical AI integration, my friend!
+
+---
 
 ## Week 4 — AI Evaluations (Evals)
 
@@ -606,6 +614,440 @@ responses.
 
 We're building our first reusable AI testing system.
 
-#### Author = OpenAi/ChatGPT 5.5
+Exactly, Partner! 😄🍀 You've made the connection between software testing and
+real business operations.
 
-#### Student = Jesse33
+A failed AI analysis doesn't mean the customer's complaint never happened.
+
+In our application:
+
+- Tests attempted: How many complaints we submitted for evaluation.
+- Analyses completed: How many returned usable results.
+- Category passes: How many categories matched expectations.
+- Priority passes: How many priorities matched expectations.
+
+This lets us measure both system reliability and AI accuracy.
+
+And I agree with your decision to follow PEP 8 consistently. That's a good habit
+for a professional software portfolio.
+
+### Next Step
+
+Add a separate `completed_analyses` counter alongside `total_tests`,
+`category_passes`, and `priority_passes`.
+
+Increment `completed_analyses` only when `result is not None`.
+
+Then display all four totals at the end of your script.
+
+Paste your updated evaluation loop when you're finished, and I'll review it
+before we run our first complete automated evaluation.
+
+Next Step: Run Our First Evaluation! run: python3 evals/run_evals.py
+
+You should see each test's expected and actual values, followed by one final
+summary.
+
+Remember, this will make five OpenAI API calls, so it will consume some API
+credits.
+
+Once it's finished, share the final summary with me.
+
+We're about to have our first measurable AI evaluation results, Partner! 🚀
+
+---
+
+Ready for another round of coding and learning?
+
+## Week 4 — AI Integration Bootcamp
+
+### Tonight's lesson: Regression Testing
+
+- Regression testing is the practice of re-running existing tests after code
+  changes to make sure previously working functionality still works and no new
+  bugs were introduced. It is commonly done after bug fixes, new features, or
+  configuration changes, often using automated testing tools and CI/CD to run
+  the checks repeatedly.
+
+Last session, we reached an important milestone:
+
+- &#x20;AI Ticket Analyzer working through Django.
+- &#x20;Automated evaluation runner completed.
+- &#x20;All five evaluation cases passed.
+- &#x20;Changes committed and synced to GitHub.
+
+### What is regression testing?
+
+Regression testing verifies that changes to our application haven't broken
+functionality that previously worked.
+
+For example, suppose we improve our AI's ability to classify electrical
+problems.
+
+That change might accidentally cause it to misclassify mechanical problems.
+
+Our evaluation dataset helps us catch those regressions.
+
+Existing tests: 5/5 passing
+
+Modify AI instructions
+
+Rerun the same five tests
+
+5/5 PASS
+
+No regression detected
+
+4/5 PASS
+
+Investigate a possible regression
+
+### Our first practical improvement
+
+Right now, `run_evals.py` displays the results, but it doesn't automatically
+indicate whether the entire evaluation suite passed or failed.
+
+We'll improve that using a simple Boolean condition.
+
+Our pass criteria will be:
+
+`category_passes == total_tests` and `priority_passes == total_tests`
+
+This also ensures that failed AI analyses count against the suite.
+
+### Your coding task
+
+Open `evals/run_evals.py`.
+
+After your existing evaluation summary:
+
+1. Create a Boolean variable named `all_tests_passed`.
+2. Set it using the two comparisons above and Python's `and` operator.
+3. Print `"Evaluation PASSED"` when it's `True`.
+4. Otherwise, print `"Evaluation FAILED"`.
+
+No API calls are needed yet. Just write the logic and paste it here for review.
+
+Perfect, Partner! 😄🍀 That fixes the issue.
+
+Your evaluation result is now calculated after all five tests finish. Exactly
+where it belongs!
+
+### Next: Test Exit Codes Without Calling OpenAI
+
+We can test the exit-code mechanism independently using your terminal.
+
+Python's `sys.exit()` communicates a status to the operating system. On your
+Mac, the shell stores that status in `$?`.
+
+Try these two commands:
+
+Test 1 — Successful exit
+
+```
+python3 -c "import sys; sys.exit(0)"; echo $?
+```
+
+Expected output: `0`
+
+Test 2 — Failed exit
+
+```
+python3 -c "import sys; sys.exit(1)"; echo $?
+```
+
+Expected output: `1`
+
+These commands won't call OpenAI or modify your project.
+
+Once you've confirmed both results, we'll know how to inspect the exit status of
+your evaluation runner when we execute it.
+
+One distinction: this tests how exit codes work, not yet the pass/fail branches
+inside `run_evals.py`.
+
+Go ahead and try them, Buddy, Ol' Pal! 🍀
+
+Excellent, Partner! 😄🍀 Both exit-code tests passed!
+
+| Test            | Expected | Actual | Result     |
+| --------------- | -------- | ------ | ---------- |
+| Successful exit | `0`      | `0`    | &#x20;PASS |
+| Failed exit     | `1`      | `1`    | &#x20;PASS |
+
+### What we've confirmed
+
+Your Mac's terminal correctly recognizes Python exit codes.
+
+This is important because tools like GitHub Actions use exit codes to determine
+whether an automated job succeeded or failed.
+
+### Next: Test Our Evaluation Runner's Failure Path
+
+We know `sys.exit()` works. Now we want to verify that our own evaluation logic
+returns the correct status.
+
+Rather than making five more OpenAI API calls, we'll temporarily simulate a
+failed evaluation.
+
+In `run_evals.py`, locate:
+
+```
+if all_tests_passed:
+```
+
+For this test only, temporarily change that condition to:
+
+```
+if False:
+```
+
+Then, rather than running the complete evaluation runner, we'll first need to
+isolate the exit-code logic from the API loop. This will let us test it without
+spending API credits.
+
+One important point: Don't run `run_evals.py` with that temporary change yet. It
+would still execute all five API requests.
+
+### Your next task
+
+For now, leave `run_evals.py` unchanged.
+
+Our next development improvement will be to make the evaluation runner testable
+without requiring live OpenAI calls, using a simple technique called mocking.
+
+This is an important AI DevOps skill: testing application behavior without
+depending on an external service.
+
+Great progress tonight, Buddy, Ol' Pal! 🚀
+
+Excellent, Partner! 😄🍀 Both exit-code tests passed!
+
+| Test            | Expected | Actual | Result     |
+| --------------- | -------- | ------ | ---------- |
+| Successful exit | `0`      | `0`    | &#x20;PASS |
+| Failed exit     | `1`      | `1`    | &#x20;PASS |
+
+### What we've confirmed
+
+Your Mac's terminal correctly recognizes Python exit codes.
+
+This is important because tools like GitHub Actions use exit codes to determine
+whether an automated job succeeded or failed.
+
+### Next: Test Our Evaluation Runner's Failure Path
+
+We know `sys.exit()` works. Now we want to verify that our own evaluation logic
+returns the correct status.
+
+Rather than making five more OpenAI API calls, we'll temporarily simulate a
+failed evaluation.
+
+In `run_evals.py`, locate:
+
+```
+if all_tests_passed:
+```
+
+For this test only, temporarily change that condition to:
+
+```
+if False:
+```
+
+Then, rather than running the complete evaluation runner, we'll first need to
+isolate the exit-code logic from the API loop. This will let us test it without
+spending API credits.
+
+One important point: Don't run `run_evals.py` with that temporary change yet. It
+would still execute all five API requests.
+
+### Your next task
+
+For now, leave `run_evals.py` unchanged.
+
+Our next development improvement will be to make the evaluation runner testable
+without requiring live OpenAI calls, using a simple technique called mocking.
+
+This is an important AI DevOps skill: testing application behavior without
+depending on an external service.
+
+Great progress tonight, Buddy, Ol' Pal! 🚀
+
+Excellent, Partner! 😄🍀 Let's get into mocking, an important skill for AI
+DevOps.
+
+First, leave `if False:` in place temporarily, but don't run `run_evals.py` yet.
+We still need to prevent those five OpenAI calls.
+
+## Week 4 — Lesson: Mocking
+
+Mocking means replacing a real dependency with a controlled substitute during
+testing.
+
+For our AI Ticket Analyzer, we can temporarily replace `analyze_ticket()` with a
+function that returns a predictable result without contacting OpenAI.
+
+### How mocking works
+
+Normal operation
+
+`run_evals.py`
+
+OpenAI API
+
+Mocked operation
+
+`run_evals.py`
+
+Fake response
+
+Both use the same evaluation logic. Only the source of the analysis changes.
+
+### Our first mocking exercise
+
+Python includes a testing library called `unittest.mock`.
+
+One useful feature is `patch()`, which can temporarily replace a function while
+a test runs.
+
+For example:
+
+```
+from unittest.mock import patch
+```
+
+With mocking, we can simulate:
+
+- A successful analysis.
+- An incorrect classification.
+- An API failure returning `None`.
+
+All without paying for API requests!
+
+### Your next task
+
+We'll keep this separate from the working evaluation runner.
+
+1. Create an empty file named `test_eval_runner.py` inside your `evals`
+   directory.
+2. Add the import for `patch` from `unittest.mock`.
+3. Don't modify `analyze_ticket()` or add any mock behavior yet.
+
+One important detail: Before running a mocked test, we'll need to make sure
+importing the evaluation runner doesn't immediately execute its API loop. We'll
+address that next.
+
+This is similar to testing a CNC program in simulation before cutting an actual
+workpiece.
+
+Next step: Show me your new file's import, and we'll build our first controlled
+mock test together, Partner! 🚀
+
+Excellent work, Partner! 😄🍀 **Code Review: Approved — no corrections needed!**
+
+You've correctly implemented our first mocked evaluation test.
+
+### **What your code does**
+
+- &#x20;`patch()` temporarily replaces the real AI analyzer.
+- &#x20;`return_value` supplies our predefined Pydantic object.
+- &#x20;`run_evals.main()` executes the evaluation using mocked responses.
+- &#x20;`except SystemExit` captures the evaluation runner's exit code.
+
+### **Next: Run Our Mocked Evaluation**
+
+From your `Week4/ai_ticket_analyzer` directory, execute:
+
+```
+python3 -m evals.test_eval_runner
+```
+
+Because every complaint receives the same `mechanical` / `critical` response, we
+expect the evaluation to fail.
+
+The final output should resemble:
+
+```
+Tests attempted: 5
+Analyses completed: 5
+Category passes: 2
+Priority passes: 1
+Evaluation FAILED
+1
+```
+
+**Important:** The final `1` is the exit code captured by your test. It proves
+that the evaluation runner recognized the incorrect classifications.
+
+No OpenAI API credits should be consumed by this test.
+
+### **One useful distinction**
+
+We're testing the **evaluation runner's ability to detect failures**, not the AI
+model's accuracy.
+
+This is like deliberately feeding an out-of-tolerance measurement into a CNC
+inspection program to verify that it correctly rejects the part.
+
+Run the test and share your output, Buddy, Ol' Pal! We're about to complete our
+first mocked regression test! 🚀
+
+**BOOM! Mission accomplished, Partner!** 🎉🍀
+
+Your first mocked regression test worked exactly as intended!
+
+### **Mocked Evaluation: PASSED&#x20;**
+
+Tests attempted
+
+# **5**
+
+Category passes
+
+# **2/5**
+
+Priority passes
+
+# **1/5**
+
+**Runner reported**
+
+Evaluation FAILED
+
+**Captured exit code**\
+`1`
+
+The evaluation failed deliberately, which means **our test of its failure
+detection succeeded**.
+
+### **What we've proven**
+
+- `patch()` successfully substituted a fake AI response.
+- The evaluation runner processed all five complaints.
+- Incorrect classifications were detected.
+- The runner selected exit code `1`.
+- No live AI requests were needed.
+
+This is a significant AI DevOps milestone!
+
+### **One important distinction**
+
+The final `1` was printed by your `except SystemExit` handler. Because your test
+catches that exception, the test script itself may still exit with code `0`.
+
+We'll address that distinction when we build automated tests.
+
+### **Next: Mock a Successful Evaluation**
+
+Now we should verify the opposite behavior: five correct mock responses
+producing `Evaluation PASSED` and exit code `0`.
+
+The new concept will be `side_effect`, which lets a mock return different
+results on successive calls instead of returning the same object every time.
+
+This will allow us to simulate all five correct classifications without
+contacting OpenAI.
+
+You've successfully tested the failure path, Buddy, Ol' Pal. Next we'll test the
+success path! 🚀

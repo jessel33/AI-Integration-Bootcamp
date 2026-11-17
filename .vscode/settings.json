@@ -48,7 +48,8 @@
 		},
 		"editor.formatOnPaste": true,
 		"editor.inlineSuggest.enabled": true,
-		"editor.defaultFormatter": "charliermarsh.ruff"
+		"editor.defaultFormatter": "charliermarsh.ruff",
+		"editor.formatOnSave": false
 	},
 	"[javascript]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
