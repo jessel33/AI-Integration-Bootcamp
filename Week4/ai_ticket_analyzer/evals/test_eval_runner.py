@@ -8,9 +8,9 @@ from . import run_evals
 
 class TestEvaluationRunner(unittest.TestCase):
 
-    def make_mock_results(self):
+    def make_mock_results(self) -> list[TicketAnalysis | None]:
 
-        mock_results = [
+        mock_results: list[TicketAnalysis | None] = [
             TicketAnalysis(
                 category="mechanical",
                 priority="critical",
