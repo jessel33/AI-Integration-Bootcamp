@@ -1051,3 +1051,211 @@ contacting OpenAI.
 
 You've successfully tested the failure path, Buddy, Ol' Pal. Next we'll test the
 success path! 🚀
+
+Welcome back, Partner! 😄🍀 Top O' the Morning to ya!
+
+Glad you're ready for another round of coding. Let's pick up exactly where we
+left off.
+
+## **Week 4 — AI DevOps: Mocking**
+
+### **Today's lesson:&#x20;**`side_effect`
+
+Last session, we successfully tested our evaluation runner's failure detection
+using `unittest.mock.patch()`.
+
+Our mock returned the same `TicketAnalysis` object for all five complaints.
+
+The results were exactly what we expected:
+
+- 5 analyses completed.
+- 2 categories matched.
+- 1 priority matched.
+- The evaluation reported `FAILED` with exit code `1`.
+
+### **Step 1: Understanding&#x20;**`side_effect`
+
+Previously, we used:
+
+```
+mock_analyze.return_value = mock_result
+```
+
+That returns the **same object every time** the function is called.
+
+But `side_effect` can return a different object on each call.
+
+For example:
+
+```
+mock_analyze.side_effect = [result1, result2, result3]
+```
+
+How `side_effect` works
+
+Call 1
+
+result1
+
+Call 2
+
+result2
+
+Call 3
+
+result3
+
+Each successive call receives the next predefined response.
+
+This is ideal for our five evaluation cases.
+
+### **Step 2: Prepare our success test**
+
+Open `evals/test_eval_runner.py`.
+
+For now, keep your existing failure test unchanged.
+
+Our next goal is to create five `TicketAnalysis` objects with the following
+expected values:
+
+| Test | Category     | Priority   |
+| ---- | ------------ | ---------- |
+| 1    | `mechanical` | `critical` |
+| 2    | `electrical` | `medium`   |
+| 3    | `other`      | `low`      |
+| 4    | `software`   | `high`     |
+| 5    | `mechanical` | `low`      |
+
+### **Your coding task**
+
+Create a Python list named `mock_results` containing five `TicketAnalysis`
+instances, one for each test case.
+
+Each instance needs a category, priority, and short factual summary.
+
+Use the same object-creation pattern you've already practiced.
+
+Don't replace `return_value` or execute the test yet. We'll connect your list to
+`side_effect` in the next step.
+
+**Our goal:** Verify that the evaluation runner reports `PASSED` and exit code
+`0` when every mocked response matches the expected classification.
+
+Let's get those coding gears turning, Buddy, Ol' Pal! 🚀
+
+Excellent work, Partner! 😄🍀 **Code Review: Approved!**
+
+You've correctly implemented `side_effect` to return five different Pydantic
+objects, matching our evaluation dataset.
+
+### **What's correct**
+
+- &#x20;Five `TicketAnalysis` objects in the correct order.
+- &#x20;Valid category and priority values.
+- &#x20;`patch()` targets the correct function.
+- &#x20;`side_effect` supplies a different response for each call.
+- &#x20;`SystemExit` is captured so we can inspect the exit code.
+
+### **One small cleanup**
+
+Your original `mock_result` variable is no longer used:
+
+```
+mock_result = TicketAnalysis(...)
+```
+
+You can remove it. We now use `mock_results` instead.
+
+### **Next: Run Our Mocked Success Test!**
+
+From your `Week4/ai_ticket_analyzer` directory, run:
+
+```
+python3 -m evals.test_eval_runner
+```
+
+**Expected results:**
+
+```
+Tests attempted: 5
+Analyses completed: 5
+Category passes: 5
+Priority passes: 5
+Evaluation PASSED
+0
+```
+
+The final `0` is the exit code captured by your exception handler.
+
+This test should make **zero OpenAI API calls**, because all five responses come
+from our mock.
+
+Run it and show me the results, Buddy, Ol' Pal!
+
+If everything passes, we'll have verified both the success and failure paths of
+our evaluation runner. 🚀
+
+**BOOM! Another clean sweep, Bro!** 🎉🍀
+
+Your mocked success test worked exactly as expected!
+
+### **Mocked Evaluation: PASSED**
+
+Analyses completed
+
+# **5/5**
+
+Category passes
+
+# **5/5**
+
+Priority passes
+
+# **5/5**
+
+**Runner result**
+
+&#x20;Evaluation PASSED
+
+**Captured exit code**\
+`0`
+
+### **What we've accomplished**
+
+We've now tested both outcomes of our evaluation runner:
+
+| Test                       | Expected       | Actual        |
+| -------------------------- | -------------- | ------------- |
+| Mocked incorrect responses | FAIL, exit `1` | &#x20;Correct |
+| Mocked correct responses   | PASS, exit `0` | &#x20;Correct |
+
+And we did it without making any OpenAI API calls!
+
+**This is a real AI DevOps skill:** testing the reliability of our application
+independently of the external AI service.
+
+### **Next: Test an API Failure**
+
+There's one final scenario worth checking: What happens when `analyze_ticket()`
+returns `None`?
+
+We already handle that in `run_evals.py`, but now we can verify it automatically
+using mocking.
+
+The next concept is simple: `side_effect` can contain `None` alongside valid
+`TicketAnalysis` objects.
+
+For our next exercise, we'll deliberately make one of the five mocked analyses
+fail and verify that the evaluation reports:
+
+- 5 tests attempted
+- 4 analyses completed
+- Evaluation FAILED
+- Exit code `1`
+
+We'll reuse the code you've already written, with only a small change.
+
+Great work, Buddy, Ol' Pal! You're building a solid testing foundation for your
+AI integration project. 🚀
+
+## End of Document. \***\*\*\*\*\*\*\***\*\*\*\*\***\*\*\*\*\*\*\***
