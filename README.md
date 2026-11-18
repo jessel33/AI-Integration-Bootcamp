@@ -26,8 +26,16 @@ https://github.com/jessel33/AI-Integration-Bootcamp/tree/main/Week2/customer_dat
 
 Week 3: https://github.com/jessel33/AI-Integration-Bootcamp/tree/main/Week3/
 
-Week3 Project:
+Week 3 Project:
 https://github.com/jessel33/AI-Integration-Bootcamp/tree/main/Week3/customer_support_ticket_system/
+
+Week 4: https://github.com/jessel33/AI-Integration-Bootcamp/tree/main/Week4/
+
+Week 4 Project:
+https://github.com/jessel33/AI-Integration-Bootcamp/tree/main/Week4/ai_ticket_analyzer/
+
+Week 4 AI Notes and Interactions:
+https://github.com/jessel33/AI-Integration-Bootcamp/tree/main/Week4/ai_notes/
 
 ## Links to Important Bootcamp Infomation
 
