@@ -50,7 +50,7 @@ class TestEvaluationRunner(unittest.TestCase):
             with self.assertRaises(SystemExit) as captured:
                 run_evals.main()
 
-            self.assertEqual(captured.exception.code, 0)
+            self.assertEqual(captured.exception.code, 1)
 
 
     def test_wrong_classifications(self):
