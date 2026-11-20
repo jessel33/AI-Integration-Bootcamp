@@ -27,9 +27,17 @@ load_dotenv(BASE_DIR / ".env")
 SECRET_KEY = os.getenv("SECRET_KEY_AI_ANALYZER")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DJANGO_DEBUG", "False").lower() == "true"
 
-ALLOWED_HOSTS = []
+SECURE_SSL_REDIRECT = os.getenv("DJANGO_SECURE_SSL_REDIRECT", "False").lower() == "true"
+
+SESSION_COOKIE_SECURE = os.getenv("DJANGO_SESSION_COOKIE_SECURE", "False").lower() == "true"
+
+CSRF_COOKIE_SECURE = os.getenv("DJANGO_CSRF_COOKIE_SECURE", "False").lower() == "true"
+
+SECURE_HSTS_SECONDS = int(os.getenv("DJANGO_SECURE_HSTS_SECONDS", "0"))
+
+ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
 
 # AI Integration: OpenAi API
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
