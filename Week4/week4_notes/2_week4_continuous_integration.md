@@ -2,6 +2,8 @@
 
 ## **Week 4 — Lesson: Continuous Integration**
 
+- Mostly copies of the Instructions the Instructor gives to the student.
+
 You've built three automated tests. Now we're going to teach GitHub to run those
 tests whenever you push code.
 

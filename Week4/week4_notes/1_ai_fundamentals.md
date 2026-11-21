@@ -2,6 +2,8 @@
 
 ## Week 4 — LLM Fundamentals
 
+- Mostly copies of the Instructions the Instructor gives to the student.
+
 ### Lesson 1: Tokens
 
 A token is a unit of text that an LLM processes. It might be a whole word, part

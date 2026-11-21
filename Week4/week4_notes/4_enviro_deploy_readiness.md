@@ -2,6 +2,8 @@
 
 ## Environment Management and Deployment Readiness
 
+- Mostly copies of the Instructions the Instructor gives to the student.
+
 **HAHAHA! THE RETURN OF THE LEGEND!** 😂🍀
 
 Archimedes is back on duty, Buddy, Ol' Pal!

@@ -1,4 +1,8 @@
-# **Week 4 — Organizing Unit Tests**
+# AI Integration Bootcamp
+
+## Week 4 — Organizing Unit Tests\*\*
+
+- Mostly copies of the Instructions the Instructor gives to the student.
 
 Now let's make all three test scenarios reusable without manually editing
 `mock_results` each time.
@@ -880,4 +884,4 @@ That's where the DevOps side really starts coming together!
 
 Great work, Buddy, Ol' Pal! 🚀
 
-## End of Document ************\*\*\*\*************
+## End of Document ****\*\*\*\*****\*\*\*\*****\*\*\*\*****
